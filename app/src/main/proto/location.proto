@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_package = "com.strawhat.looker";
+option java_multiple_files = true;
+
+message Location {
+  double lat = 1;
+  double long = 2;
+  bool requestLocation = 3;
+}

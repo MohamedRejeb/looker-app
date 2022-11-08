@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "com.strawhat.looker";
+option java_multiple_files = true;
+
+message UserPreferences {
+  string accessToken = 1;
+  string refreshToken = 2;
+}
