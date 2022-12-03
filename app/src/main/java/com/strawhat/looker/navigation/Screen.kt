@@ -8,6 +8,7 @@ sealed class Screen(val route: String) {
     object Map: Screen(route = "map_screen")
     object Discussions: Screen(route = "discussions_screen")
     object Discussion: Screen(route = "discussion_screen")
+    object Suggest: Screen(route = "suggest_screen")
     object Search: Screen(route = "search_screen")
     object Profile: Screen(route = "profile_screen")
 }

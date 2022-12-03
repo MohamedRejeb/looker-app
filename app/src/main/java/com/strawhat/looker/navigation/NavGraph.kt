@@ -5,12 +5,11 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.ime
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.navigation.NavHostController
@@ -21,12 +20,13 @@ import com.google.accompanist.navigation.animation.composable
 import com.strawhat.looker.auth.login.ui.LoginScreen
 import com.strawhat.looker.auth.register.ui.RegisterScreen
 import com.strawhat.looker.chat.ui.discussion.DiscussionScreen
-import com.strawhat.looker.chat.ui.DiscussionsScreen
+import com.strawhat.looker.chat.ui.discussions.DiscussionsScreen
 import com.strawhat.looker.map.ui.MapScreen
 import com.strawhat.looker.navigation_bar.MainNavigationBarScreen
 import com.strawhat.looker.navigation_bar.NavigationBarItemModel
 import com.strawhat.looker.search.ui.SearchScreen
 import com.strawhat.looker.splash.SplashScreen
+import com.strawhat.looker.suggest.SuggestScreen
 
 @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterialApi::class)
 @Composable
@@ -148,9 +148,17 @@ fun SetupNavGraph(
             }
 
             composable(
+                route = Screen.Suggest.route
+            ) {
+                SuggestScreen()
+            }
+
+            composable(
                 route = Screen.Discussion.route
             ) {
-                DiscussionScreen()
+                DiscussionScreen(
+                    navigateUp = { navController.navigateUp() }
+                )
             }
 
             composable(
@@ -164,7 +172,13 @@ fun SetupNavGraph(
             composable(
                 route = Screen.Profile.route
             ) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.fillMaxSize()
+                ) {
 
+                    Text(text = "Welcome to your profile")
+                }
             }
         }
 
@@ -202,6 +216,11 @@ private val mainNavigationBarItems = listOf(
         label = "Chat",
         route = Screen.Discussions.route,
         resourceId = R.drawable.message_fill,
+    ),
+    NavigationBarItemModel(
+        label = "Suggest",
+        route = Screen.Suggest.route,
+        resourceId = R.drawable.add,
     ),
     NavigationBarItemModel(
         label = "Search",

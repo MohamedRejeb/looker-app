@@ -227,7 +227,7 @@ fun SearchScreenContent(
                         contentScale = ContentScale.Crop,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(250.dp)
+                            .height(380.dp)
                             .clip(RoundedCornerShape(16.dp))
                     )
                 } else {
@@ -238,7 +238,7 @@ fun SearchScreenContent(
                         placeholder = painterResource(id = R.drawable.placeholder),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(250.dp)
+                            .height(380.dp)
                             .clip(RoundedCornerShape(16.dp))
                     )
                 }

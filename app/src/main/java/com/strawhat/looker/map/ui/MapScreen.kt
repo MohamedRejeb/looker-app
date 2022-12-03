@@ -90,7 +90,7 @@ fun MapScreen(
             .build()
     }
 
-    cameraPositionState.animationToPosition(LatLng(myLat, myLng), coroutineScope)
+//    cameraPositionState.animationToPosition(LatLng(myLat, myLng), coroutineScope)
 
     LaunchedEffect(key1 = viewModel.selectedPlaceId) {
         Timber.d("selectedPlaceId: ${viewModel.selectedPlaceId}")
@@ -1040,7 +1040,7 @@ fun ReviewContent(
                 Spacer(modifier = Modifier.width(12.dp))
 
                 Text(
-                    text = "3 days ago",
+                    text = review.createdAt.substring(0..9),
                     color = colorScheme.onSurfaceVariant,
                     style = typography.labelMedium
                 )
