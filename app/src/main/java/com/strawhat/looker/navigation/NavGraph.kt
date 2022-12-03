@@ -196,6 +196,7 @@ fun SetupNavGraph(
                             popUpTo(route = Screen.Map.route) {
                                 inclusive = false
                             }
+
                         }
                     }
                 },
