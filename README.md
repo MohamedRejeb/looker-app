@@ -1,5 +1,5 @@
 # looker-app
 
 - Retrofit
-- Compose
+- Jetpack Compose
 - Google maps API 
