@@ -1,4 +1,4 @@
-# looker-app
+# Looker App
 
 - Retrofit (For Api calls)
 - Jetpack Compose
